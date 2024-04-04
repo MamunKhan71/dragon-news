@@ -4,6 +4,7 @@ import moment from "moment";
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import ReadMoreReact from 'read-more-react';
+import { Link } from "react-router-dom";
 
 const MainContent = () => {
     const { news } = useContext(NewsContext)
@@ -11,12 +12,12 @@ const MainContent = () => {
         <div className="col-span-2">
             <h1 className="font-bold text-[#403F3F]">Dragon News Home</h1>
             <div className="scrollbar-thumb-sky-700 scrollbar-track-sky-300">
-                <div className="space-y-4 h-[1550px] scrollbar-thin overflow-y-scroll">
+                <div className="space-y-4 mt-4 h-[1550px] scrollbar-thin overflow-y-scroll">
                     {
                         news.map(nws => {
                             return (
                                 <>
-                                    <div className="space-y-4 border rounded-t-md">
+                                    <Link to={`${nws.category_id}`} className="space-y-4 border rounded-t-md">
                                         <div className="bg-[#E7E7E7] text-[#403F3F] p-4 rounded-t-md flex gap-2 items-center justify-between">
                                             <div className="flex gap-2">
                                                 <img className="w-10 h-10 object-cover rounded-full" src={nws.author.img} alt="" />
@@ -55,7 +56,7 @@ const MainContent = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 </>
                             )
                         })

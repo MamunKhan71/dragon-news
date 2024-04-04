@@ -6,6 +6,8 @@ import SignUp from '../pages/SignUp';
 import Error from '../components/ErrorPage/Error';
 import About from '../components/About/About';
 import Career from '../components/Career/Career';
+import NewsDetails from '../pages/NewsDetails';
+import PrivateRoute from '../Auth/PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -32,6 +34,10 @@ const router = createBrowserRouter([
         {
           path: '/career',
           element: <Career/>
+        },
+        {
+          path: '/:id',
+          element: <PrivateRoute><NewsDetails/></PrivateRoute>
         }
       ]
     },

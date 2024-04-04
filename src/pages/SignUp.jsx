@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form"
 import Navbar from "../components/Common/Navbar";
 
 const SignUp = () => {
+    const [user, setUser] = useState(null)
     const { createNewUser } = useContext(AuthContext)
     const [authError, setAuthError] = useState(null)
     const {
@@ -20,6 +21,7 @@ const SignUp = () => {
         createNewUser(email, password)
             .then(result => {
                 const user = result.user
+                setUser(user)
                 setAuthError("Sign up Successful, Please Login")
             })
             .catch(error => setAuthError(error))
@@ -43,7 +45,7 @@ const SignUp = () => {
                     </div>
                     <div className="space-y-1 text-sm">
                         <label htmlFor="photoUrl" className="block  text-[#403F3F] font-semibold">Photo URL</label>
-                        <input {...register('photoUrl')} type="password" name="photoUrl" id="photoUrl" placeholder="Enter your photo url" className="bg-[#F3F3F3] w-full px-4 py-3 rounded-md border-gray-700    text-[#403F3F] focus:border-violet-400" />
+                        <input {...register('photoUrl')} type="text" name="photoUrl" id="photoUrl" placeholder="Enter your photo url" className="bg-[#F3F3F3] w-full px-4 py-3 rounded-md border-gray-700    text-[#403F3F] focus:border-violet-400" />
                     </div>
                     <div className="space-y-1 text-sm">
                         <label htmlFor="email" className="block  text-[#403F3F] font-semibold">Email</label>
