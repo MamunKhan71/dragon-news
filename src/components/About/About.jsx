@@ -1,4 +1,4 @@
-const HomeSidebar = () => {
+const About = () => {
     return (
         <div>
             
@@ -6,4 +6,4 @@ const HomeSidebar = () => {
     );
 };
 
-export default HomeSidebar;
+export default About;
